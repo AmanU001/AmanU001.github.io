@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Gautam — moves people, quietly electric</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17211B;
+    --paper:#F5F6F1;
+    --sign:#0B6E4F;      /* highway guide-sign green */
+    --volt:#FFD23F;      /* signal yellow */
+    --line:#C9CFC5;
+    --live:#E4572E;      /* "you are here" */
+    --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:15px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--sign);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+  /* ---------- top placard ---------- */
+  header{padding:44px 0 8px}
+  .route-chip{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--sign);color:#fff;
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+    padding:7px 14px;border-radius:999px;text-transform:uppercase;
+  }
+  .route-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--volt)}
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;font-size:clamp(46px,9.5vw,92px);
+    line-height:.95;letter-spacing:-.02em;margin:18px 0 6px;
+  }
+  h1 .volt{
+    background:var(--volt);padding:0 .12em;border-radius:6px;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  }
+  .strap{
+    font-size:clamp(16px,2.6vw,20px);max-width:56ch;color:#39443D;
+  }
+  .contact-row{
+    display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 6px;
+    font-family:var(--mono);font-size:12.5px;
+  }
+  .stub{
+    border:1.5px dashed var(--ink);border-radius:8px;padding:6px 12px;
+    text-decoration:none;background:#fff;
+  }
+  .stub:hover{background:var(--volt)}
+
+  /* ---------- ticker ---------- */
+  .ticker{
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    background:#fff;overflow:hidden;white-space:nowrap;margin:26px 0 0;
+  }
+  .ticker-inner{
+    display:inline-block;padding:9px 0;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+    animation:slide 26s linear infinite;
+  }
+  .ticker-inner span{margin:0 14px;color:var(--sign)}
+  .ticker-inner b{color:var(--ink);font-weight:700}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){
+    .ticker-inner{animation:none}
+    .pulse::after{animation:none}
+  }
+
+  /* ---------- signs (stats) ---------- */
+  .signs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 10px}
+  .sign{
+    background:var(--sign);color:#fff;border-radius:12px;
+    border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+    padding:16px 14px 13px;
+  }
+  .sign .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1}
+  .sign .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:7px;opacity:.92}
+  .sign.alt{background:var(--volt);color:var(--ink)}
+  @media(max-width:640px){.signs{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- route ---------- */
+  section.route{padding:44px 0 10px}
+  .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sign);margin-bottom:22px;
+  }
+  .stops{position:relative;margin-left:8px}
+  .stops::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:5px;
+    background:var(--sign);border-radius:99px;
+  }
+  .stop{position:relative;padding:0 0 30px 44px}
+  .stop:last-child{padding-bottom:6px}
+  .stop .marker{
+    position:absolute;left:0;top:3px;width:23px;height:23px;border-radius:50%;
+    background:#fff;border:5px solid var(--sign);
+  }
+  .stop.live .marker{border-color:var(--live)}
+  .pulse{position:relative}
+  .pulse::after{
+    content:"";position:absolute;inset:-7px;border-radius:50%;
+    border:2px solid var(--live);animation:pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
+  .stop .meta{font-family:var(--mono);font-size:12px;color:#5A665E;letter-spacing:.04em}
+  .stop h3{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:clamp(19px,3vw,24px);letter-spacing:-.01em;margin:3px 0 4px;
+  }
+  .stop p{max-width:62ch;color:#333D36}
+  .tag{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;
+    background:#fff;border:1.5px solid var(--ink);border-radius:999px;
+    padding:2px 9px;margin:8px 6px 0 0;letter-spacing:.03em;
+  }
+  .tag.hot{background:var(--volt)}
+
+  /* ---------- toolkit + stamps ---------- */
+  .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:40px 0 6px}
+  @media(max-width:700px){.grid2{grid-template-columns:1fr}}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{
+    font-family:var(--mono);font-size:12px;background:#fff;
+    border:1.5px solid var(--ink);border-radius:8px;padding:6px 11px;
+  }
+  .chip:nth-child(4n){transform:rotate(-1.2deg);background:var(--volt)}
+  .chip:nth-child(7n){transform:rotate(1.4deg)}
+  .stamp{
+    border:2px solid var(--sign);border-radius:10px;padding:12px 14px;margin-top:12px;
+    background:#fff;position:relative;
+  }
+  .stamp .who{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--sign)}
+  .stamp .what{font-weight:600;font-size:14.5px;margin-top:2px}
+  .stamp:nth-child(odd){transform:rotate(-.7deg)}
+  .stamp:nth-child(even){transform:rotate(.6deg)}
+
+  /* ---------- footer / boarding ---------- */
+  footer{margin:52px 0 46px}
+  .board{
+    background:var(--ink);color:var(--paper);border-radius:16px;
+    padding:34px clamp(20px,5vw,44px);display:flex;flex-wrap:wrap;
+    align-items:center;justify-content:space-between;gap:18px;
+  }
+  .board h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(24px,4.6vw,38px);letter-spacing:-.01em;line-height:1.05;
+  }
+  .board .sub{font-family:var(--mono);font-size:12px;color:#AEB8B0;margin-top:8px;letter-spacing:.05em}
+  .cta{
+    font-family:var(--mono);font-size:14px;font-weight:700;
+    background:var(--volt);color:var(--ink);text-decoration:none;
+    padding:14px 22px;border-radius:10px;border:3px solid var(--volt);
+    transition:transform .12s ease;
+    display:inline-block;
+  }
+  .cta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--sign)}
+  .fine{
+    font-family:var(--mono);font-size:11px;color:#7A857D;
+    text-align:center;margin-top:22px;letter-spacing:.04em;
+  }
+
+  @media print{
+    .ticker-inner{animation:none}
+    body{font-size:12px}
+    header{padding-top:16px}
+    .board{border:2px solid var(--ink);background:#fff;color:var(--ink)}
+    .board .sub{color:#555}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="route-chip"><span class="dot"></span>Route: KTM &rarr; net-zero &middot; now boarding</span>
+    <h1>AMAN<br>GAUTAM<span style="color:var(--sign)">.</span><br><span class="volt">moves people.</span></h1>
+    <p class="strap">Transport engineer making public transport electric, ticketed, and actually pleasant — currently advising GIZ on Nepal's switch to 3,500 electric buses. Before that: 77 km of roads and drains across Tanzania, ADB towns in the Himalayas, and a master's in Bangkok.</p>
+    <div class="contact-row">
+      <a class="stub" href="mailto:97amangautam@gmail.com">✉ 97amangautam@gmail.com</a>
+      <a class="stub" href="tel:+9779843517576">☏ +977 984&#8209;3517576</a>
+      <!-- update the vanity URL once you've fixed it on LinkedIn -->
+      <a class="stub" href="https://www.linkedin.com/in/cerealchilleraman">in/ linkedin</a>
+      <span class="stub">⚑ Kathmandu, Nepal</span>
+    </div>
+  </header>
+</div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>✦</span><b>EV charging infrastructure</b><span>✦</span><b>open-loop e-ticketing</b><span>✦</span><b>77 km designed</b><span>✦</span><b>World Bank · ADB · GIZ</b><span>✦</span><b>demand forecasting</b><span>✦</span><b>NDC 3.0</b><span>✦</span><b>drainage that drains</b><span>✦</span><b>EV charging infrastructure</b><span>✦</span><b>open-loop e-ticketing</b><span>✦</span><b>77 km designed</b><span>✦</span><b>World Bank · ADB · GIZ</b><span>✦</span><b>demand forecasting</b><span>✦</span><b>NDC 3.0</b><span>✦</span><b>drainage that drains</b><span>✦</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="signs">
+    <div class="sign"><div class="n">77 km</div><div class="l">urban roads &amp; drainage designed</div></div>
+    <div class="sign alt"><div class="n">3,500</div><div class="l">e-buses in the programme I advise</div></div>
+    <div class="sign"><div class="n">4</div><div class="l">countries worked in</div></div>
+    <div class="sign alt"><div class="n">6 yrs</div><div class="l">WB / ADB / GIZ projects</div></div>
+  </div>
+
+  <section class="route">
+    <div class="kicker">// the route so far — all stops, no skips</div>
+    <div class="stops">
+
+      <div class="stop live">
+        <span class="marker pulse"></span>
+        <div class="meta">2026 — NOW &middot; KATHMANDU 🇳🇵</div>
+        <h3>Technical Advisor · GIZ Nepal (SET4NPL)</h3>
+        <p>Helping Nepal swap diesel microbuses for electric ones — leading procurement for public charging stations, advising the national utility on a central charging management system, and getting open-loop e-ticketing from slide deck to street.</p>
+        <span class="tag hot">Mitigation Action Facility</span><span class="tag">EUR 299M leveraged</span><span class="tag">NEA · MoPIT · DOTM</span>
+      </div>
+
+      <div class="stop">
+        <span class="marker"></span>
+        <div class="meta">2025 — 2026 &middot; SIKKIM 🇮🇳</div>
+        <h3>Transportation Engineer &amp; Coordinator · ADB SIUDP</h3>
+        <p>Design-supervision consultant across eight Himalayan towns: town halls with built-in EV charging, treatment plants, roads, and the art of keeping eight sites moving at once.</p>
+        <span class="tag">PMDSC</span><span class="tag">8 towns</span>
+      </div>
+
+      <div class="stop">
+        <span class="marker"></span>
+        <div class="meta">2023 — 2026 &middot; TANZANIA 🇹🇿</div>
+        <h3>Road &amp; Drainage Engineer · World Bank TACTIC</h3>
+        <p>Two contracts, nine towns, ~77 km of urban roads and drainage from feasibility to bidding documents. Promoted from Non-Key to Key Expert along the way. Also planned bus infrastructure for six local governments — forecasts, bus bays, headways.</p>
+        <span class="tag hot">Key Expert</span><span class="tag">hydrological modelling</span><span class="tag">TARURA</span>
+      </div>
+
+      <div class="stop">
+        <span class="marker"></span>
+        <div class="meta">2021 — 2023 &middot; BANGKOK 🇹🇭</div>
+        <h3>M.Eng. Transportation Engineering · AIT</h3>
+        <p>Grad school plus a research assistantship counting every kilo of the campus's carbon — GHG inventories the IPCC way, wrangled in R and Python.</p>
+        <span class="tag">IPCC bottom-up</span><span class="tag">R · Python</span>
+      </div>
+
+      <div class="stop">
+        <span class="marker"></span>
+        <div class="meta">2019 — 2021 &middot; NEPAL 🇳🇵 &middot; BANGALORE 🇮🇳</div>
+        <h3>Where it started</h3>
+        <p>Civil engineering degree (First Class with Distinction), then a year supervising municipal construction in far-west Nepal — measuring works, checking quality, learning what drawings look like once they meet mud.</p>
+        <span class="tag">site supervision</span><span class="tag">NEC registered · Civil "A"</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="grid2">
+    <div>
+      <div class="kicker">// toolkit</div>
+      <div class="chips">
+        <span class="chip">EV charging infra</span>
+        <span class="chip">e-ticketing systems</span>
+        <span class="chip">public transport planning</span>
+        <span class="chip">demand forecasting</span>
+        <span class="chip">geometric design</span>
+        <span class="chip">pavement (AASHTO '93)</span>
+        <span class="chip">drainage + hydrology</span>
+        <span class="chip">BOQs &amp; bidding docs</span>
+        <span class="chip">construction supervision</span>
+        <span class="chip">GHG inventories</span>
+        <span class="chip">AutoCAD</span>
+        <span class="chip">PTV Vissim</span>
+        <span class="chip">R · Python · MATLAB</span>
+        <span class="chip">EN · NE · HI</span>
+      </div>
+    </div>
+    <div>
+      <div class="kicker">// stamped &amp; certified</div>
+      <div class="stamp"><div class="who">Nepal Engineering Council</div><div class="what">Registered Civil Engineer — "A" No. 25765</div></div>
+      <div class="stamp"><div class="who">World Bank Group</div><div class="what">Integrated Urban Transport Planning</div></div>
+      <div class="stamp"><div class="who">UN DESA + UNITAR</div><div class="what">Infrastructure Asset Management</div></div>
+      <div class="stamp"><div class="who">ASCE + ACI</div><div class="what">Member · 10+ technical courses</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="board">
+      <div>
+        <h2>Building something<br>that moves people?</h2>
+        <div class="sub">NEXT DEPARTURE: YOUR PROJECT &middot; GATE — INBOX</div>
+      </div>
+      <a class="cta" href="mailto:97amangautam@gmail.com">SAY HELLO →</a>
+    </div>
+    <p class="fine">AMAN GAUTAM · KATHMANDU · full CV, references &amp; certificates on request · no diesel was harmed in the making of this page</p>
+  </footer>
+</div>
+
+</body>
+</html>
