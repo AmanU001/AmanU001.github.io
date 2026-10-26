@@ -149,6 +149,7 @@
   .ep-gallery a:hover img{transform:scale(1.04)}
   .ep-gallery figcaption{font-size:11.5px;color:var(--dim);margin-top:5px}
   .ep-gallery figure{margin:0}
+  .ep-gallery.certs img{object-fit:contain;background:#fff;height:170px}
   @media(prefers-reduced-motion:reduce){.ep-gallery img{transition:none}}
 
   /* ============ ROWS ============ */
@@ -200,6 +201,9 @@
   .c-wb{background:linear-gradient(135deg,#009FDA,#002244)}
   .c-un{background:url('art/un-emblem.svg') right 16px center / auto 78% no-repeat,#009EDB}
   .c-asce{background:linear-gradient(135deg,#0a5ea8,#00264d)}
+  .c-eit{background:linear-gradient(135deg,#00a0c6,#1d2f6f)}
+  .c-gizait{background:linear-gradient(135deg,#c8102e,#5a0614)}
+  .c-udemy{background:linear-gradient(135deg,#a435f0,#3b0764)}
   .p-blr{background:linear-gradient(to top,rgba(76,5,25,.85),rgba(190,18,60,.15) 60%),url('blr-lab.jpg') center 30% / cover}
   .t6{background:linear-gradient(135deg,#374151,#111827)}
 
@@ -369,12 +373,15 @@
 
   <!-- ============ ROW: CREDENTIALS ============ -->
   <div class="row">
-    <h3>Critically Acclaimed <span>· registrations &amp; training</span></h3>
+    <h3>Critically Acclaimed <span>· registration, memberships &amp; 29 certificates</span></h3>
     <div class="scroller">
       <div class="card"><div class="thumb t6">NEC "A"</div><div class="body"><div class="tagline">Nepal Engineering Council</div><p>Registered Civil Engineer, No. 25765.</p></div></div>
-      <div class="card"><div class="thumb c-wb">WORLD BANK</div><div class="body"><div class="tagline">Training</div><p>Integrated Urban Transport Planning; Managing Unsolicited Infrastructure Proposals.</p></div></div>
-      <div class="card"><div class="thumb c-un">UNITED NATIONS</div><div class="body"><div class="tagline">UN DESA · UNITAR · UNECE · UN CC:Learn</div><p>Infrastructure asset management, emissions reporting, cities &amp; climate change.</p></div></div>
-      <div class="card"><div class="thumb c-asce">ASCE + ACI</div><div class="body"><div class="tagline">Member</div><p>10+ technical courses: pavements, road safety audits, resilience, LCA.</p></div></div>
+      <div class="card" data-ep="asce"><div class="thumb c-asce">ASCE + ACI</div><div class="body"><div class="tagline">Member · 14 courses</div><p>Pavements, road safety audits, signal timing, resilience, Envision, LCA, concrete.</p></div></div>
+      <div class="card" data-ep="wb"><div class="thumb c-wb">WORLD BANK</div><div class="body"><div class="tagline">3 courses</div><p>Integrated Urban Transport Planning; Unsolicited Infrastructure Proposals; Think Road Safety.</p></div></div>
+      <div class="card" data-ep="un"><div class="thumb c-un">UNITED NATIONS</div><div class="body"><div class="tagline">UN DESA · UNITAR · UNECE · UN CC:Learn</div><p>Infrastructure asset management, SDG data, emissions reporting, cities &amp; climate change.</p></div></div>
+      <div class="card" data-ep="eit"><div class="thumb c-eit">EIT URBAN MOBILITY</div><div class="body"><div class="tagline">EU-funded · 4 courses</div><p>Fundamentals of urban mobility, active mobility, cycling cities, AI in transport.</p></div></div>
+      <div class="card" data-ep="gizait"><div class="thumb c-gizait">GIZ × AIT</div><div class="body"><div class="tagline">2024</div><p>Waste Management and Sustainable Tourism — nine-module online training.</p></div></div>
+      <div class="card" data-ep="udemy"><div class="thumb c-udemy">UDEMY</div><div class="body"><div class="tagline">3 courses</div><p>Project management (CAPM), construction contract administration, business strategy.</p></div></div>
     </div>
   </div>
 
@@ -503,6 +510,14 @@
     }
   };
 
+  // certificate groups for the Critically Acclaimed row
+  EPISODES.wb = {"title": "World Bank<br>Group", "bannerCss": "linear-gradient(135deg,#009FDA,#002244)", "meta": "Open Learning Campus · 2023", "role": "3 courses", "text": ["Self-paced courses from the World Bank Open Learning Campus on urban transport, infrastructure procurement and road safety."], "chips": ["urban transport", "PPP / procurement", "road safety"], "certs": true, "photos": [["certs/wb-urban-transport-planning.jpg", "Integrated Urban Transport Planning · 25 Aug 2023"], ["certs/wb-unsolicited-proposals.jpg", "Policy Guidelines for Managing Unsolicited Proposals in Infrastructure Projects · 9 Aug 2023"], ["certs/wb-road-safety.jpg", "Think Road Safety — Road Safety Training for External Partners · 21 Aug 2023"]], "galleryTitle": "Certificates"};
+  EPISODES.un = {"title": "United<br>Nations", "bannerCss": "url('art/un-emblem.svg') right 28px center / auto 70% no-repeat,#009EDB", "meta": "UN DESA · UNITAR · UNECE · UN CC:Learn · UN-Habitat · 2023", "role": "4 courses", "text": ["Courses from UN agencies on infrastructure asset management, SDG data, emissions reporting, and cities and climate change."], "chips": ["asset management", "SDG data", "emissions reporting", "climate"], "certs": true, "photos": [["certs/un-asset-management.jpg", "Infrastructure Asset Management for Sustainable Development (UN DESA · UNITAR) · 16 Aug 2023"], ["certs/un-cities-climate.jpg", "Specialized Module on Cities and Climate Change (UNITAR · UN CC:Learn · UN-Habitat) · 9 Aug 2023"], ["certs/un-data-statistics.jpg", "Understanding Data and Statistics Better — for More Effective SDG Decision Making (UNITAR · UN DESA · ECA) · 10 Aug 2023"], ["certs/un-unece-emissions.jpg", "Reporting Emissions under the Convention on Long-range Transboundary Air Pollution (UNECE) · 9 Aug 2023"]], "galleryTitle": "Certificates"};
+  EPISODES.asce = {"title": "ASCE<br>+ ACI", "bannerCss": "linear-gradient(135deg,#0a5ea8,#00264d)", "meta": "American Society of Civil Engineers · American Concrete Institute · 2023", "role": "Member of ASCE (incl. Transportation & Development Institute) and ACI · 14 courses", "text": ["Continuing-education courses on pavements, road safety, traffic engineering, resilience, sustainability and concrete."], "chips": ["pavements", "road safety", "resilience", "sustainability", "concrete"], "certs": true, "photos": [["certs/asce-membership.jpg", "ASCE Member · Aug 2023"], ["certs/aci-membership.jpg", "ACI Member · Aug 2023 – Aug 2024"], ["certs/asce-aashto93.jpg", "AASHTO '93 Pavement Design · 9 Sep 2023"], ["certs/asce-flexible-pavement.jpg", "Flexible Pavement Evaluation for Effective Decision Making · 28 Aug 2023"], ["certs/asce-permeable-pavements.jpg", "Permeable Interlocking Concrete Pavements (new ASCE standard) · 24 Aug 2023"], ["certs/asce-road-safety-audit.jpg", "Road Safety and Signage Audit — Proactive Roadway Safety · 10 Sep 2023"], ["certs/asce-connected-vehicles.jpg", "Connected Vehicles, Smarter Cities & Modern Signal Timing · 11 Dec 2023"], ["certs/asce-gis-airports.jpg", "Implementation of GIS in Airport Environments · 2 Oct 2023"], ["certs/asce-lca-transport.jpg", "Life Cycle Assessment for Transportation Facilities · 7 Sep 2023"], ["certs/asce-envision.jpg", "Sustainable Infrastructure Using Envision · 11 Dec 2023"], ["certs/asce-disaster-resilience.jpg", "Disaster Resilience of Infrastructure Systems · 14 Dec 2023"], ["certs/asce-ground-modification.jpg", "Sustainability of Ground Modification Works · 12 Dec 2023"], ["certs/aci-nepal-earthquake.jpg", "Learning from the Nepal 2015 Earthquake (ACI) · 26 Dec 2023"], ["certs/aci-resilient-buildings.jpg", "Enhancements in Building Design and Construction for Resilient Communities (ACI) · 26 Dec 2023"], ["certs/aci-modern-concrete.jpg", "Modern Concrete: Achieving Sustainability Through Durability (ACI) · 11 Dec 2023"], ["certs/aci-bridge-strengthening.jpg", "Non-Conventional Reinforcing & Strengthening Methods for Bridges (ACI) · 12 Dec 2023"]], "galleryTitle": "Certificates"};
+  EPISODES.eit = {"title": "EIT Urban<br>Mobility", "bannerCss": "linear-gradient(135deg,#00a0c6,#1d2f6f)", "meta": "EIT Urban Mobility Academy · co-funded by the European Union · 2023", "role": "4 courses", "text": ["Short courses on urban mobility planning, active travel, cycling-city design and AI in transport."], "chips": ["urban mobility", "active travel", "cycling", "AI"], "certs": true, "photos": [["certs/eit-fundamentals.jpg", "Fundamentals of Urban Mobility · 19 Jul 2023"], ["certs/eit-active-mobility.jpg", "Active Mobility at the Heart of Transport Modelling · 19 Jul 2023"], ["certs/eit-ai-urban-mobility.jpg", "Artificial Intelligence in Urban Mobility · 19 Jul 2023"], ["certs/eit-cycling-city.jpg", "Designing the Cycling City · 4 Aug 2023"]], "galleryTitle": "Certificates"};
+  EPISODES.gizait = {"title": "GIZ ×<br>AIT", "bannerCss": "linear-gradient(135deg,#c8102e,#5a0614)", "meta": "GIZ · Asian Institute of Technology (RRC.AP) · ASEAN · 2024", "role": "Nine-module online training", "text": ["Waste Management and Sustainable Tourism — organised by GIZ through the ASEAN Municipal Solid Waste Management Enhancement project with AIT, covering circular economy, waste collection, plastics, CE business models and monitoring."], "chips": ["circular economy", "waste management", "tourism"], "certs": true, "photos": [["certs/giz-ait-waste-tourism.jpg", "Waste Management and Sustainable Tourism · 11 Dec 2024"]], "galleryTitle": "Certificates"};
+  EPISODES.udemy = {"title": "Udemy", "bannerCss": "linear-gradient(135deg,#a435f0,#3b0764)", "meta": "Udemy · 2023", "role": "3 courses", "text": ["Short courses on project management, construction contracts and business strategy."], "chips": ["project management", "contracts", "strategy"], "certs": true, "photos": [["certs/udemy-capm.jpg", "CAPM: Certified Associate in Project Management · 15 Aug 2023"], ["certs/udemy-contract-admin.jpg", "Construction Contract Administration · 22 Aug 2023"], ["certs/udemy-business-strategy.jpg", "Executive Diploma in Business Strategy · 23 Aug 2023"]], "galleryTitle": "Certificates"};
+
   (function(){
     var dlg = document.getElementById('ep');
     var lastCard = null;
@@ -510,14 +525,14 @@
     function open(id, card){
       var e = EPISODES[id]; if(!e) return;
       lastCard = card;
-      document.getElementById('ep-banner').style.backgroundImage = "url('" + e.banner + "')";
+      document.getElementById('ep-banner').style.background = e.bannerCss || ("url('" + e.banner + "') center / cover no-repeat");
       document.getElementById('ep-title').innerHTML = e.title;
       var h = '<div class="ep-meta">' + esc(e.meta) + '</div><div class="ep-role">' + esc(e.role) + '</div>';
       e.text.forEach(function(t){ h += '<p>' + esc(t) + '</p>'; });
       if(e.list){ h += '<ul>' + e.list.map(function(li){ return '<li>' + li + '</li>'; }).join('') + '</ul>'; }
       h += '<div class="ep-chips">' + e.chips.map(function(c){ return '<span>' + esc(c) + '</span>'; }).join('') + '</div>';
       if(e.photos.length){
-        h += '<div class="ep-gallery-title">Behind the scenes</div><div class="ep-gallery">';
+        h += '<div class="ep-gallery-title">' + (e.galleryTitle || 'Behind the scenes') + '</div><div class="ep-gallery' + (e.certs ? ' certs' : '') + '">';
         e.photos.forEach(function(p){
           h += '<figure><a href="' + p[0] + '" target="_blank" rel="noopener"><img src="' + p[0] + '" alt="' + esc(p[1]) + '" loading="lazy"></a><figcaption>' + esc(p[1]) + '</figcaption></figure>';
         });
