@@ -116,6 +116,41 @@
   .about .fan{color:var(--dim)}
   .about .fan b{color:#6f8cff}
 
+  /* ============ EPISODE POP-UP ============ */
+  .card[data-ep]{cursor:pointer}
+  .card[data-ep]:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .card[data-ep] .body::after{content:'ⓘ  Open episode';display:block;margin-top:10px;font-size:11.5px;font-weight:700;color:var(--txt);opacity:.7}
+  dialog.ep{
+    margin:auto;border:none;padding:0;background:var(--panel);color:var(--txt);border-radius:10px;
+    width:min(880px,calc(100vw - 24px));max-height:calc(100vh - 40px);overflow:auto;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+  }
+  dialog.ep::backdrop{background:rgba(0,0,0,.72)}
+  .ep-banner{position:relative;height:clamp(200px,40vw,340px);background:center / cover no-repeat;display:flex;align-items:flex-end}
+  .ep-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--panel) 2%,rgba(22,22,29,.25) 60%,rgba(22,22,29,0))}
+  .ep-banner h2{position:relative;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(34px,6vw,58px);line-height:.95;padding:0 clamp(18px,4vw,36px) 6px}
+  .ep-close{
+    position:absolute;top:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;
+    border:none;background:#16161d;color:var(--txt);font-size:20px;cursor:pointer;line-height:1;
+  }
+  .ep-close:hover{background:#2c2c34}
+  .ep-content{padding:8px clamp(18px,4vw,36px) 30px}
+  .ep-meta{color:#46d369;font-weight:700;font-size:13px;margin-bottom:12px}
+  .ep-role{font-weight:700;font-size:16px;margin-bottom:8px}
+  .ep-content p{color:#cfcfd6;margin-bottom:10px;max-width:70ch}
+  .ep-content ul{margin:4px 0 12px 18px;color:#cfcfd6;max-width:70ch}
+  .ep-content li{margin:5px 0}
+  .ep-chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+  .ep-chips span{font-size:11px;color:#c7c7cd;border:1px solid #3a3a42;border-radius:4px;padding:2px 8px}
+  .ep-gallery-title{font-weight:700;font-size:15px;margin:22px 0 10px}
+  .ep-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .ep-gallery a{display:block;border-radius:6px;overflow:hidden;background:#0b0b0f}
+  .ep-gallery img{width:100%;height:150px;object-fit:cover;display:block;transition:transform .2s}
+  .ep-gallery a:hover img{transform:scale(1.04)}
+  .ep-gallery figcaption{font-size:11.5px;color:var(--dim);margin-top:5px}
+  .ep-gallery figure{margin:0}
+  @media(prefers-reduced-motion:reduce){.ep-gallery img{transition:none}}
+
   /* ============ ROWS ============ */
   main{padding:10px 0 60px}
   .row{margin:34px 0}
@@ -257,7 +292,7 @@
   <div class="row" id="work">
     <h3>Career Originals <span>· the full series</span></h3>
     <div class="scroller">
-      <div class="card">
+      <div class="card" data-ep="giz">
         <span class="live-dot">NOW STREAMING</span>
         <div class="thumb p-giz">SET4NPL<br>THE ELECTRIC ERA</div>
         <div class="body">
@@ -266,7 +301,7 @@
           <div class="chips"><span>MAF</span><span>NEA</span><span>e-mobility</span></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-ep="sk">
         <div class="thumb p-sk">EIGHT TOWNS<br>IN THE HIMALAYAS</div>
         <div class="body">
           <div class="tagline">Oct 2025 – Feb 2026 · ADB · Sikkim, India</div>
@@ -274,7 +309,7 @@
           <div class="chips"><span>PMDSC</span><span>SIUDP</span></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-ep="tz">
         <div class="thumb p-tz">77 KM<br>A TANZANIA STORY</div>
         <div class="body">
           <div class="tagline">Dec 2023 – Jan 2026 · World Bank · Tanzania</div>
@@ -282,7 +317,7 @@
           <div class="chips"><span>Key Expert</span><span>hydrology</span><span>BOQs</span></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-ep="hwy">
         <div class="thumb p-hwy">HIGHWAYS &amp;<br>AN AIRPORT</div>
         <div class="body">
           <div class="tagline">Jul – Nov 2023 · Kathmandu, Nepal</div>
@@ -290,7 +325,7 @@
           <div class="chips"><span>geometric design</span><span>pavements</span><span>IEE</span></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-ep="bkk">
         <div class="thumb p-bkk">THE BANGKOK<br>SEMESTERS</div>
         <div class="body">
           <div class="tagline">2021 – 2023 · AIT, Thailand</div>
@@ -298,7 +333,7 @@
           <div class="chips"><span>thesis</span><span>GHG</span><span>R · Python</span></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-ep="blr">
         <div class="thumb p-blr">ORIGIN<br>STORY</div>
         <div class="body">
           <div class="tagline">2016 – 2021 · Bangalore &amp; Nepal</div>
@@ -385,6 +420,114 @@
   }
   // skip gate if arriving via anchor link
   if(location.hash){document.getElementById('gate').classList.add('hidden')}
+</script>
+
+<!-- ============ EPISODE POP-UP ============ -->
+<dialog class="ep" id="ep" aria-labelledby="ep-title">
+  <button class="ep-close" type="button" aria-label="Close">✕</button>
+  <div class="ep-banner" id="ep-banner"><h2 id="ep-title"></h2></div>
+  <div class="ep-content" id="ep-content"></div>
+</dialog>
+
+<script>
+  var EPISODES = {
+    giz: {
+      title: 'SET4NPL<br>The Electric Era', banner: 'giz-van.jpg',
+      meta: 'Feb 2026 – present · GIZ Nepal · Kathmandu',
+      role: 'Technical Advisor · Sustainable Electric Transport for Nepal (SET4NPL), Mitigation Action Facility',
+      text: ['Helping Nepal swap diesel microbuses for electric ones — part of a push to put 3,500 electric buses on the road, backed by EUR 299M and the Mitigation Action Facility.'],
+      list: ['Technical inputs to procurement of public EV charging infrastructure — specifications, bidder clarifications, technical evaluation.',
+             'Advising the Nepal Electricity Authority on a centralized Charging Management System, charging-station guidelines and support mechanisms.',
+             'Coordinating procurement and piloting of open-loop e-ticketing with operators, payment providers and government.',
+             'Technical dialogue with MoPIT, DOTM, NEA, financial institutions, operators and development partners.'],
+      chips: ['MAF', 'NEA · MoPIT · DOTM', 'EV charging', 'e-ticketing'],
+      photos: [['giz-van.jpg','SET4NPL vehicle'],['giz-workshop.jpg','Workshop discussion'],['giz-meeting.jpg','Working session with partners'],['giz-microbus.jpg','Under the hood of a microbus'],['giz-team.jpg','With the team']]
+    },
+    sk: {
+      title: 'Eight Towns<br>in the Himalayas', banner: 'sk-meeting.jpg',
+      meta: 'Oct 2025 – Feb 2026 · ADB · Sikkim, India',
+      role: 'Transportation Engineer & Project Coordinator · PMDSC, Sikkim Integrated Urban Development Project',
+      text: ['Part of the Project Management and Design Supervision Consultant team on the ADB-funded SIUDP — planning, coordinating and supervising urban infrastructure across Tadong & Ranipool, Pakyong, Singtam, Rangpo, Soreng, Geyzing and Mangan.',
+             'Town Hall cum Centres with built-in EV charging, water and sewage treatment plants, and roads — with project coordination, stakeholder engagement and technical oversight to ADB standards.'],
+      chips: ['PMDSC', '8 towns', 'THCC + EV charging', 'WTP · STP · roads'],
+      photos: [['sk-welcome.jpg','Khada welcome in Sikkim'],['sk-meeting.jpg','Project coordination meeting']]
+    },
+    tz: {
+      title: '77 KM<br>A Tanzania Story', banner: 'tz-meeting.jpg',
+      meta: 'Dec 2023 – Jan 2026 · World Bank · Tanzania',
+      role: 'Road & Drainage Engineer · TACTIC Programme',
+      text: ['Two contracts, nine towns, ~77 km of urban roads and drainage — feasibility, hydrological modelling, BOQs and bidding documents, side by side with TARURA engineers and local government authorities.'],
+      list: ['<b>Season 2 · Key Expert</b> (Feb 2025 – Jan 2026) · Tier 3, Zones 2 & 3 — Masasi, Newala, Nanyamba, Makambako, Mafinga, Mbinga. Led ~45 km of road and drainage design, plus public transport infrastructure for six local governments: demand forecasts, bus bays, headways.',
+             '<b>Season 1 · Non-Key Expert</b> (Dec 2023 – Jan 2025) · Tier 2, Zone 4 — Kibaha, Lindi, Mtwara Mikindani. ~32 km of urban roads, bus-terminal demand assessments, site and geotechnical investigations.'],
+      chips: ['Key Expert', 'hydrological modelling', 'BOQs', 'TARURA'],
+      photos: [['tz-team.jpg','With the project team'],['tz-meeting.jpg','Design review with local staff']]
+    },
+    hwy: {
+      title: 'Highways &<br>an Airport', banner: 'art/highway-airport.svg',
+      meta: 'Jul – Nov 2023 · Building Design Authority · Kathmandu, Nepal',
+      role: 'Highway Engineer',
+      text: ['Geometric and pavement designs, road alignments and interchange concepts for highway and airport infrastructure, coordinating drawings and multidisciplinary technical reviews.',
+             'Technical inputs and supporting documentation for the Initial Environmental Examination of the Nijgadh International Airport project.'],
+      chips: ['geometric design', 'pavements', 'interchanges', 'Nijgadh Airport IEE'],
+      photos: []
+    },
+    bkk: {
+      title: 'The Bangkok<br>Semesters', banner: 'ait-speed-survey.jpg',
+      meta: '2021 – 2023 · Asian Institute of Technology · Thailand',
+      role: 'M.Eng. Transportation Engineering + Research Assistant',
+      text: ['A research assistantship with AIT’s sustainability team, estimating the whole campus’s greenhouse-gas emissions with the IPCC bottom-up approach — staff air travel included. It became my thesis too.',
+             'Data wrangled in R and Python; guides, tutorials and project coordination on the side. Field work included an intersection study in Trang.'],
+      chips: ['thesis: campus GHG', 'IPCC bottom-up', 'R · Python'],
+      photos: [['ait-speed-survey.jpg','Intersection study, Trang, Thailand'],['ait-nepali-crew.jpg','The Nepali crew at AIT'],['ait-fancy-dress.jpg','Fancy-dress party with classmates'],['ait-friends.jpg','Evenings out in Bangkok'],['ait-field.jpg','AIT campus field']]
+    },
+    blr: {
+      title: 'Origin<br>Story', banner: 'blr-lab.jpg',
+      meta: '2016 – 2021 · Bangalore & Nepal',
+      role: 'B.E. Civil Engineering → Civil Engineer, Construction Supervision',
+      text: ['B.E. Civil Engineering from Visvesvaraya Technological University (New Horizon College of Engineering, Bangalore), 2016 – 2020 — First Class with Distinction.',
+             'Then a year (Aug 2020 – Aug 2021) supervising municipal works on the Regional Urban Development Project in Sudurpashchim, far-west Nepal — measuring works, checking quality, learning what drawings look like once they meet mud.'],
+      chips: ['site supervision', 'NEC "A" No. 25765'],
+      photos: [['blr-lab.jpg','Geotech lab: sieve analysis'],['blr-site.jpg','Site visit: footing rebar'],['blr-friends.jpg','Campus event, Bangalore'],['blr-ground.jpg','Handball on the college ground']]
+    }
+  };
+
+  (function(){
+    var dlg = document.getElementById('ep');
+    var lastCard = null;
+    function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function open(id, card){
+      var e = EPISODES[id]; if(!e) return;
+      lastCard = card;
+      document.getElementById('ep-banner').style.backgroundImage = "url('" + e.banner + "')";
+      document.getElementById('ep-title').innerHTML = e.title;
+      var h = '<div class="ep-meta">' + esc(e.meta) + '</div><div class="ep-role">' + esc(e.role) + '</div>';
+      e.text.forEach(function(t){ h += '<p>' + esc(t) + '</p>'; });
+      if(e.list){ h += '<ul>' + e.list.map(function(li){ return '<li>' + li + '</li>'; }).join('') + '</ul>'; }
+      h += '<div class="ep-chips">' + e.chips.map(function(c){ return '<span>' + esc(c) + '</span>'; }).join('') + '</div>';
+      if(e.photos.length){
+        h += '<div class="ep-gallery-title">Behind the scenes</div><div class="ep-gallery">';
+        e.photos.forEach(function(p){
+          h += '<figure><a href="' + p[0] + '" target="_blank" rel="noopener"><img src="' + p[0] + '" alt="' + esc(p[1]) + '" loading="lazy"></a><figcaption>' + esc(p[1]) + '</figcaption></figure>';
+        });
+        h += '</div>';
+      }
+      document.getElementById('ep-content').innerHTML = h;
+      dlg.scrollTop = 0;
+      dlg.showModal();
+    }
+    document.querySelectorAll('.card[data-ep]').forEach(function(card){
+      card.setAttribute('role','button');
+      card.setAttribute('tabindex','0');
+      card.addEventListener('click', function(){ open(card.dataset.ep, card); });
+      card.addEventListener('keydown', function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); open(card.dataset.ep, card); }
+      });
+    });
+    dlg.querySelector('.ep-close').addEventListener('click', function(){ dlg.close(); });
+    // click on the dark backdrop closes
+    dlg.addEventListener('click', function(ev){ if(ev.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', function(){ if(lastCard) lastCard.focus(); });
+  })();
 </script>
 
 </body>
