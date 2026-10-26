@@ -71,7 +71,17 @@
       linear-gradient(120deg,#07251c 0%,#0B6E4F 45%,#123 100%);
     background-size:cover;background-position:center;
   }
-  /* To use a real photo: upload hero.jpg to your repo and uncomment in the HTML below */
+  .hero.photo{
+    background:
+      linear-gradient(to top,var(--bg) 3%,rgba(11,11,15,0) 45%),
+      linear-gradient(to right,var(--bg) 0%,rgba(11,11,15,.85) 30%,rgba(11,11,15,.15) 62%,rgba(11,11,15,0) 100%),
+      url('hero.jpg') 72% 22% / cover no-repeat;
+  }
+  @media(max-width:700px){
+    .hero.photo{background:
+      linear-gradient(to top,var(--bg) 30%,rgba(11,11,15,.55) 60%,rgba(11,11,15,.1) 100%),
+      url('hero.jpg') 50% 0 / auto 70% no-repeat,var(--bg)}
+  }
   .hero-inner{max-width:640px;position:relative}
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-bottom:14px}
   .badge .n{color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em}
@@ -186,16 +196,12 @@
     <a href="#contact">Contact</a>
   </div>
   <div class="avatar">
-    AG
-    <!-- Real photo: upload me.jpg to your repo, then replace "AG" above with:
-         <img src="me.jpg" alt="Aman Gautam">                                  -->
+    <img src="me.jpg" alt="Aman Gautam">
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
-<!-- Real photo backdrop: upload hero.jpg to your repo and add to the hero div:
-     style="background-image:linear-gradient(to top,var(--bg) 4%,rgba(11,11,15,.35) 55%,rgba(11,11,15,.6)),url('hero.jpg')"  -->
-<section class="hero">
+<section class="hero photo">
   <div class="hero-inner">
     <div class="badge"><span class="n">AG</span> A CAREER ORIGINAL &middot; SEASON 6</div>
     <h2>ELECTRIFYING<br>PUBLIC TRANSPORT</h2>
