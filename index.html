@@ -142,8 +142,10 @@
     width:100%;height:190px;object-fit:cover;display:block;
     border-radius:10px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--sign);background:var(--line);
   }
+  .snaps.square-first{grid-template-columns:.8fr 1.2fr}
+  .snaps.square-first img{height:220px;object-position:center 30%}
   .snaps figcaption{font-family:var(--mono);font-size:11px;color:#5A665E;margin-top:7px;letter-spacing:.03em}
-  @media(max-width:560px){.snaps{grid-template-columns:1fr}.snaps img{height:auto}}
+  @media(max-width:560px){.snaps,.snaps.square-first{grid-template-columns:1fr}.snaps img,.snaps.square-first img{height:auto}}
 
   /* ---------- toolkit + stamps ---------- */
   .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:40px 0 6px}
@@ -252,6 +254,10 @@
         <h3>Transportation Engineer &amp; Coordinator · ADB SIUDP</h3>
         <p>Design-supervision consultant across eight Himalayan towns: town halls with built-in EV charging, treatment plants, roads, and the art of keeping eight sites moving at once.</p>
         <span class="tag">PMDSC</span><span class="tag">8 towns</span>
+        <div class="snaps square-first">
+          <figure><img src="sk-welcome.jpg" alt="Aman and colleagues welcomed with khadas in Sikkim" loading="lazy"><figcaption>Khada welcome in Sikkim</figcaption></figure>
+          <figure><img src="sk-meeting.jpg" alt="Project coordination meeting in Sikkim" loading="lazy"><figcaption>Project coordination meeting</figcaption></figure>
+        </div>
       </div>
 
       <div class="stop">
