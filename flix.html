@@ -160,6 +160,11 @@
   .p-sk{background:linear-gradient(to top,rgba(49,46,129,.85),rgba(124,58,237,.15) 60%),url('sk-meeting.jpg') center 45% / cover}
   .p-tz{background:linear-gradient(to top,rgba(3,40,70,.85),rgba(3,105,161,.15) 60%),url('tz-meeting.jpg') center 40% / cover}
   .p-bkk{background:linear-gradient(to top,rgba(87,31,5,.85),rgba(180,83,9,.15) 60%),url('ait-speed-survey.jpg') center 35% / cover}
+  .p-hwy{background:linear-gradient(to top,rgba(17,24,39,.8),rgba(17,24,39,0) 60%),url('art/highway-airport.svg') center / cover}
+  /* credential cards */
+  .c-wb{background:linear-gradient(135deg,#009FDA,#002244)}
+  .c-un{background:url('art/un-emblem.svg') right 16px center / auto 78% no-repeat,#009EDB}
+  .c-asce{background:linear-gradient(135deg,#0a5ea8,#00264d)}
   .p-blr{background:linear-gradient(to top,rgba(76,5,25,.85),rgba(190,18,60,.15) 60%),url('blr-lab.jpg') center 30% / cover}
   .t6{background:linear-gradient(135deg,#374151,#111827)}
 
@@ -174,6 +179,7 @@
     background:var(--panel);border-radius:8px;padding:16px 16px 18px;flex:1;z-index:2;
     display:flex;flex-direction:column;justify-content:flex-end;min-height:170px;
   }
+  .ranked .mini .art{height:96px;border-radius:6px;background:center / cover no-repeat;margin-bottom:12px}
   .ranked .mini .t{font-weight:700;font-size:15px;margin-bottom:4px}
   .ranked .mini p{color:var(--dim);font-size:12.5px}
 
@@ -277,7 +283,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="thumb t6">HIGHWAYS &amp;<br>AN AIRPORT</div>
+        <div class="thumb p-hwy">HIGHWAYS &amp;<br>AN AIRPORT</div>
         <div class="body">
           <div class="tagline">Jul – Nov 2023 · Kathmandu, Nepal</div>
           <p>Highway Engineer at Building Design Authority. Geometric and pavement designs, alignments, interchange concepts, and IEE inputs for Nijgadh International Airport.</p>
@@ -318,11 +324,11 @@
   <div class="row ranked" id="top5">
     <h3>Top 5 Things I Do <span>· in Nepal today</span></h3>
     <div class="scroller">
-      <div class="card"><div class="num">1</div><div class="mini"><div class="t">EV charging infrastructure</div><p>From technical specs to tender to concrete in the ground.</p></div></div>
-      <div class="card"><div class="num">2</div><div class="mini"><div class="t">Public transport planning</div><p>Demand forecasts, bus bays, headways, terminals.</p></div></div>
-      <div class="card"><div class="num">3</div><div class="mini"><div class="t">Urban roads &amp; drainage</div><p>Geometric design, pavements, hydrology that holds in monsoon.</p></div></div>
-      <div class="card"><div class="num">4</div><div class="mini"><div class="t">Donor-project delivery</div><p>World Bank, ADB, GIZ — feasibility to supervision, paperwork included.</p></div></div>
-      <div class="card"><div class="num">5</div><div class="mini"><div class="t">Climate numbers</div><p>GHG inventories and emissions math behind the mobility transition.</p></div></div>
+      <div class="card"><div class="num">1</div><div class="mini"><div class="art" style="background-image:url(art/ev-charging.svg)"></div><div class="t">EV charging infrastructure</div><p>From technical specs to tender to concrete in the ground.</p></div></div>
+      <div class="card"><div class="num">2</div><div class="mini"><div class="art" style="background-image:url(art/public-transport.svg)"></div><div class="t">Public transport planning</div><p>Demand forecasts, bus bays, headways, terminals.</p></div></div>
+      <div class="card"><div class="num">3</div><div class="mini"><div class="art" style="background-image:url(art/roads-drainage.svg)"></div><div class="t">Urban roads &amp; drainage</div><p>Geometric design, pavements, hydrology that holds in monsoon.</p></div></div>
+      <div class="card"><div class="num">4</div><div class="mini"><div class="art" style="background-image:url(art/donor-delivery.svg)"></div><div class="t">Donor-project delivery</div><p>World Bank, ADB, GIZ — feasibility to supervision, paperwork included.</p></div></div>
+      <div class="card"><div class="num">5</div><div class="mini"><div class="art" style="background-image:url(art/climate-numbers.svg)"></div><div class="t">Climate numbers</div><p>GHG inventories and emissions math behind the mobility transition.</p></div></div>
     </div>
   </div>
 
@@ -331,9 +337,9 @@
     <h3>Critically Acclaimed <span>· registrations &amp; training</span></h3>
     <div class="scroller">
       <div class="card"><div class="thumb t6">NEC "A"</div><div class="body"><div class="tagline">Nepal Engineering Council</div><p>Registered Civil Engineer, No. 25765.</p></div></div>
-      <div class="card"><div class="thumb t1">WORLD BANK</div><div class="body"><div class="tagline">Training</div><p>Integrated Urban Transport Planning; Managing Unsolicited Infrastructure Proposals.</p></div></div>
-      <div class="card"><div class="thumb t3">UNITED NATIONS</div><div class="body"><div class="tagline">UN DESA · UNITAR · UNECE · UN CC:Learn</div><p>Infrastructure asset management, emissions reporting, cities &amp; climate change.</p></div></div>
-      <div class="card"><div class="thumb t2">ASCE + ACI</div><div class="body"><div class="tagline">Member</div><p>10+ technical courses: pavements, road safety audits, resilience, LCA.</p></div></div>
+      <div class="card"><div class="thumb c-wb">WORLD BANK</div><div class="body"><div class="tagline">Training</div><p>Integrated Urban Transport Planning; Managing Unsolicited Infrastructure Proposals.</p></div></div>
+      <div class="card"><div class="thumb c-un">UNITED NATIONS</div><div class="body"><div class="tagline">UN DESA · UNITAR · UNECE · UN CC:Learn</div><p>Infrastructure asset management, emissions reporting, cities &amp; climate change.</p></div></div>
+      <div class="card"><div class="thumb c-asce">ASCE + ACI</div><div class="body"><div class="tagline">Member</div><p>10+ technical courses: pavements, road safety audits, resilience, LCA.</p></div></div>
     </div>
   </div>
 
