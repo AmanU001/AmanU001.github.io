@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aman Gautam — moves people, quietly electric</title>
+<meta name="description" content="Aman Gautam, transportation engineer. Technical Advisor at GIZ Nepal on electric public transport; World Bank, ADB and GIZ projects across Nepal, India, Tanzania and Thailand.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aman Gautam — Transportation Engineer">
+<meta property="og:description" content="Technical Advisor at GIZ Nepal on electric public transport. World Bank, ADB and GIZ projects across Nepal, India, Tanzania and Thailand.">
+<meta property="og:url" content="https://amanu001.github.io/">
+<meta property="og:image" content="https://amanu001.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -69,6 +78,8 @@
     text-decoration:none;background:#fff;
   }
   .stub:hover{background:var(--volt)}
+  .stub.cv{background:var(--volt);border-style:solid;font-weight:700}
+  .stub.cv:hover{background:#fff}
 
   /* ---------- ticker ---------- */
   .ticker{
@@ -136,6 +147,21 @@
     padding:2px 9px;margin:8px 6px 0 0;letter-spacing:.03em;
   }
   .tag.hot{background:var(--volt)}
+  .legs{list-style:none;margin:10px 0 0;padding:0;max-width:62ch}
+  .legs li{border-left:3px solid var(--sign);padding:2px 0 2px 12px;margin:8px 0;color:#333D36;font-size:14.5px}
+
+  /* ---------- about ---------- */
+  .about{padding:40px 0 0}
+  .about .motto{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(26px,4.6vw,40px);line-height:1.05;letter-spacing:-.01em;margin-bottom:16px;
+  }
+  .about .motto span{background:var(--volt);padding:0 .1em;border-radius:5px}
+  .about p{max-width:64ch;color:#333D36;font-size:16px;margin-bottom:12px}
+  .offclock{
+    display:inline-block;font-family:var(--mono);font-size:12.5px;margin-top:4px;
+    background:#fff;border:1.5px dashed var(--ink);border-radius:8px;padding:8px 12px;
+  }
   .snaps{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin:16px 0 4px;max-width:640px}
   .snaps figure{margin:0}
   .snaps img{
@@ -147,9 +173,11 @@
   .snaps.gallery{grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;max-width:700px}
   .snaps.gallery img{height:170px}
   .snaps.gallery .wide{grid-column:span 2}
+  .snaps.four{grid-template-columns:1fr 1fr}
+  .snaps.four img{height:200px}
   .snaps figcaption{font-family:var(--mono);font-size:11px;color:#5A665E;margin-top:7px;letter-spacing:.03em}
   @media(max-width:560px){.snaps,.snaps.square-first{grid-template-columns:1fr}.snaps img,.snaps.square-first img{height:auto}
-    .snaps.gallery{grid-template-columns:1fr 1fr}.snaps.gallery img{height:150px}.snaps.gallery .wide img{height:auto}}
+    .snaps.gallery,.snaps.four{grid-template-columns:1fr 1fr}.snaps.gallery img,.snaps.four img{height:150px}.snaps.gallery .wide img{height:auto}}
 
   /* ---------- toolkit + stamps ---------- */
   .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:40px 0 6px}
@@ -216,9 +244,9 @@
     <div class="contact-row">
       <a class="stub" href="mailto:97amangautam@gmail.com">✉ 97amangautam@gmail.com</a>
       <a class="stub" href="tel:+9779843517576">☏ +977 984&#8209;3517576</a>
-      <!-- update the vanity URL once you've fixed it on LinkedIn -->
       <a class="stub" href="https://www.linkedin.com/in/cerealchilleraman">in/ linkedin</a>
       <span class="stub">⚑ Kathmandu, Nepal</span>
+      <a class="stub cv" href="Aman_Gautam_CV.pdf" download>⤓ Download CV</a>
     </div>
    </div>
     <img class="portrait" src="me.jpg" alt="Aman Gautam" width="600" height="600">
@@ -240,18 +268,26 @@
     <div class="sign alt"><div class="n">6 yrs</div><div class="l">WB / ADB / GIZ projects</div></div>
   </div>
 
+  <section class="about">
+    <div class="kicker">// about me</div>
+    <p class="motto">Slow but persistent. <span>Growing.</span> Human.</p>
+    <p>Transport decides who gets to school, to work, to a hospital — and who gets left behind. That's why I do this. I've learned it inside institutions that each taught me a piece of it: the World Bank's mission to end poverty on a livable planet, the UN's promise to leave no one behind — safe, affordable, sustainable transport for all — and GIZ's way of working side by side with local partners, so the systems we build belong to the people who run them long after we leave.</p>
+    <p>I'm rarely the fastest person in the room. I'm usually the one still there — measuring, asking, fixing.</p>
+    <div class="offclock">⚽ Off the clock: futsal whenever I can find a game, football whenever I can't. Chelsea, always — KTBFFH 💙</div>
+  </section>
+
   <section class="route">
     <div class="kicker">// the route so far — all stops, no skips</div>
     <div class="stops">
 
       <div class="stop live">
         <span class="marker pulse"></span>
-        <div class="meta">2026 — NOW &middot; KATHMANDU 🇳🇵</div>
+        <div class="meta">FEB 2026 — NOW &middot; KATHMANDU 🇳🇵</div>
         <h3>Technical Advisor · GIZ Nepal (SET4NPL)</h3>
         <p>Helping Nepal swap diesel microbuses for electric ones — leading procurement for public charging stations, advising the national utility on a central charging management system, and getting open-loop e-ticketing from slide deck to street.</p>
         <span class="tag hot">Mitigation Action Facility</span><span class="tag">EUR 299M leveraged</span><span class="tag">NEA · MoPIT · DOTM</span>
         <div class="snaps gallery">
-          <figure><img src="giz-van.jpg" alt="SET4NPL-branded van on a mountain road in Nepal" loading="lazy"><figcaption>SET4NPL field visit</figcaption></figure>
+          <figure><img src="giz-van.jpg" alt="SET4NPL-branded vehicle on a mountain road in Nepal" loading="lazy"><figcaption>SET4NPL vehicle</figcaption></figure>
           <figure><img src="giz-workshop.jpg" alt="Aman speaking at a workshop table" loading="lazy" style="object-position:center 30%"><figcaption>Workshop discussion</figcaption></figure>
           <figure class="wide"><img src="giz-meeting.jpg" alt="Aman in a working session with two partners" loading="lazy" style="object-position:center 30%"><figcaption>Working session with partners</figcaption></figure>
           <figure><img src="giz-microbus.jpg" alt="Technicians working inside a stripped-down microbus" loading="lazy"><figcaption>Under the hood of a microbus</figcaption></figure>
@@ -261,10 +297,10 @@
 
       <div class="stop">
         <span class="marker"></span>
-        <div class="meta">2025 — 2026 &middot; SIKKIM 🇮🇳</div>
-        <h3>Transportation Engineer &amp; Coordinator · ADB SIUDP</h3>
-        <p>Design-supervision consultant across eight Himalayan towns: town halls with built-in EV charging, treatment plants, roads, and the art of keeping eight sites moving at once.</p>
-        <span class="tag">PMDSC</span><span class="tag">8 towns</span>
+        <div class="meta">OCT 2025 — FEB 2026 &middot; SIKKIM 🇮🇳</div>
+        <h3>Transportation Engineer &amp; Project Coordinator · ADB SIUDP</h3>
+        <p>Part of the Project Management and Design Supervision Consultant (PMDSC) team on the ADB-funded Sikkim Integrated Urban Development Project — planning, coordinating and supervising urban infrastructure across Tadong &amp; Ranipool, Pakyong, Singtam, Rangpo, Soreng, Geyzing and Mangan. Town Hall cum Centres with built-in EV charging, water and sewage treatment plants, roads — and the art of keeping eight sites moving at once, to ADB standards.</p>
+        <span class="tag">PMDSC</span><span class="tag">8 towns</span><span class="tag">THCC + EV charging</span><span class="tag">WTP · STP · roads</span>
         <div class="snaps square-first">
           <figure><img src="sk-welcome.jpg" alt="Aman and colleagues welcomed with khadas in Sikkim" loading="lazy"><figcaption>Khada welcome in Sikkim</figcaption></figure>
           <figure><img src="sk-meeting.jpg" alt="Project coordination meeting in Sikkim" loading="lazy"><figcaption>Project coordination meeting</figcaption></figure>
@@ -273,9 +309,13 @@
 
       <div class="stop">
         <span class="marker"></span>
-        <div class="meta">2023 — 2026 &middot; TANZANIA 🇹🇿</div>
+        <div class="meta">DEC 2023 — JAN 2026 &middot; TANZANIA 🇹🇿</div>
         <h3>Road &amp; Drainage Engineer · World Bank TACTIC</h3>
-        <p>Two contracts, nine towns, ~77 km of urban roads and drainage from feasibility to bidding documents. Promoted from Non-Key to Key Expert along the way. Also planned bus infrastructure for six local governments — forecasts, bus bays, headways.</p>
+        <p>Two contracts, nine towns, ~77 km of urban roads and drainage — feasibility, hydrological modelling, BOQs and bidding documents, side by side with TARURA engineers and local government authorities.</p>
+        <ul class="legs">
+          <li><b>Key Expert</b> · Feb 2025 – Jan 2026 · Tier 3, Zones 2 &amp; 3 — Masasi, Newala, Nanyamba, Makambako, Mafinga, Mbinga. Led ~45 km of road and drainage design, plus public transport infrastructure for six local governments: demand forecasts, bus bays, headways.</li>
+          <li><b>Non-Key Expert</b> · Dec 2023 – Jan 2025 · Tier 2, Zone 4 — Kibaha, Lindi, Mtwara Mikindani. ~32 km of urban roads, bus-terminal demand assessments, site and geotechnical investigations.</li>
+        </ul>
         <span class="tag hot">Key Expert</span><span class="tag">hydrological modelling</span><span class="tag">TARURA</span>
         <div class="snaps">
           <figure><img src="tz-team.jpg" alt="Aman with the project team in Tanzania" loading="lazy"><figcaption>With the project team</figcaption></figure>
@@ -285,12 +325,20 @@
 
       <div class="stop">
         <span class="marker"></span>
+        <div class="meta">JUL 2023 — NOV 2023 &middot; KATHMANDU 🇳🇵</div>
+        <h3>Highway Engineer · Building Design Authority</h3>
+        <p>Geometric and pavement designs, road alignments and interchange concepts for highway and airport infrastructure — plus technical inputs for the Initial Environmental Examination of the Nijgadh International Airport project.</p>
+        <span class="tag">geometric design</span><span class="tag">pavements</span><span class="tag">Nijgadh Airport IEE</span>
+      </div>
+
+      <div class="stop">
+        <span class="marker"></span>
         <div class="meta">2021 — 2023 &middot; BANGKOK 🇹🇭</div>
         <h3>M.Eng. Transportation Engineering · AIT</h3>
-        <p>Grad school plus a research assistantship counting every kilo of the campus's carbon — GHG inventories the IPCC way, wrangled in R and Python.</p>
-        <span class="tag">IPCC bottom-up</span><span class="tag">R · Python</span>
+        <p>Grad school plus a research assistantship with AIT's sustainability team, counting every kilo of the campus's carbon — a campus-wide GHG inventory the IPCC bottom-up way, staff air travel included. It became my thesis too. Data wrangled in R and Python; field work included an intersection study in Trang.</p>
+        <span class="tag hot">thesis: campus GHG</span><span class="tag">IPCC bottom-up</span><span class="tag">R · Python</span>
         <div class="snaps gallery">
-          <figure><img src="ait-speed-survey.jpg" alt="Aman aiming a laser speed gun during a roadside traffic survey" loading="lazy" style="object-position:center 30%"><figcaption>Spot-speed survey, laser gun in hand</figcaption></figure>
+          <figure><img src="ait-speed-survey.jpg" alt="Aman aiming a laser speed gun during an intersection study in Trang" loading="lazy" style="object-position:center 30%"><figcaption>Intersection study, Trang, Thailand</figcaption></figure>
           <figure><img src="ait-nepali-crew.jpg" alt="Large group of Nepali students at AIT with a Nepal flag" loading="lazy"><figcaption>The Nepali crew at AIT</figcaption></figure>
           <figure class="wide"><img src="ait-fancy-dress.jpg" alt="Classmates in costumes at a fancy-dress party" loading="lazy" style="object-position:center 40%"><figcaption>Fancy-dress party with classmates</figcaption></figure>
           <figure><img src="ait-friends.jpg" alt="Aman with friends at a lounge in Bangkok" loading="lazy"><figcaption>Evenings out in Bangkok</figcaption></figure>
@@ -302,12 +350,11 @@
         <span class="marker"></span>
         <div class="meta">2019 — 2021 &middot; NEPAL 🇳🇵 &middot; BANGALORE 🇮🇳</div>
         <h3>Where it started</h3>
-        <p>Civil engineering degree (First Class with Distinction), then a year supervising municipal construction in far-west Nepal — measuring works, checking quality, learning what drawings look like once they meet mud.</p>
+        <p>B.E. Civil Engineering from Visvesvaraya Technological University (New Horizon College of Engineering, Bangalore) — First Class with Distinction, 2020. Then a year supervising municipal works on the Regional Urban Development Project in Sudurpashchim, far-west Nepal — measuring works, checking quality, learning what drawings look like once they meet mud.</p>
         <span class="tag">site supervision</span><span class="tag">NEC registered · Civil "A"</span>
-        <div class="snaps gallery">
+        <div class="snaps four">
           <figure><img src="blr-lab.jpg" alt="Aman doing a sieve analysis in the geotechnical lab" loading="lazy" style="object-position:center 20%"><figcaption>Geotech lab: sieve analysis</figcaption></figure>
           <figure><img src="blr-site.jpg" alt="Footing reinforcement in an excavation pit" loading="lazy"><figcaption>Site visit: footing rebar</figcaption></figure>
-          <figure class="wide"><img src="blr-class2020.jpg" alt="New Horizon College of Engineering, Civil Engineering graduating class of 2020" loading="lazy" style="object-position:center top"><figcaption>New Horizon College of Engineering · Civil, class of 2020</figcaption></figure>
           <figure><img src="blr-friends.jpg" alt="Aman with a friend at a campus event in Bangalore" loading="lazy" style="object-position:center 20%"><figcaption>Campus event, Bangalore</figcaption></figure>
           <figure><img src="blr-ground.jpg" alt="Handball match on the college sports ground" loading="lazy"><figcaption>Handball on the college ground</figcaption></figure>
         </div>
@@ -351,9 +398,12 @@
         <h2>Building something<br>that moves people?</h2>
         <div class="sub">NEXT DEPARTURE: YOUR PROJECT &middot; GATE — INBOX</div>
       </div>
-      <a class="cta" href="mailto:97amangautam@gmail.com">SAY HELLO →</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="cta" href="mailto:97amangautam@gmail.com">SAY HELLO →</a>
+        <a class="cta" href="Aman_Gautam_CV.pdf" download>⤓ CV</a>
+      </div>
     </div>
-    <p class="fine">AMAN GAUTAM · KATHMANDU · full CV, references &amp; certificates on request · no diesel was harmed in the making of this page</p>
+    <p class="fine">AMAN GAUTAM · KATHMANDU · references &amp; certificates on request · no diesel was harmed in the making of this page</p>
   </footer>
 </div>
 
