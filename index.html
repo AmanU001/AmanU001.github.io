@@ -31,6 +31,16 @@
 
   /* ---------- top placard ---------- */
   header{padding:44px 0 8px}
+  .head-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+  .portrait{
+    width:clamp(150px,22vw,210px);height:auto;aspect-ratio:1;object-fit:cover;display:block;
+    border-radius:16px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--sign);
+    margin-top:52px;background:var(--line);
+  }
+  @media(max-width:640px){
+    .head-grid{grid-template-columns:1fr}
+    .portrait{order:-1;width:132px;margin-top:0;box-shadow:4px 4px 0 var(--sign)}
+  }
   .route-chip{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--sign);color:#fff;
@@ -184,6 +194,8 @@
 
 <div class="wrap">
   <header>
+   <div class="head-grid">
+   <div>
     <span class="route-chip"><span class="dot"></span>Route: KTM &rarr; net-zero &middot; now boarding</span>
     <h1>AMAN<br>GAUTAM<span style="color:var(--sign)">.</span><br><span class="volt">moves people.</span></h1>
     <p class="strap">Transport engineer making public transport electric, ticketed, and actually pleasant — currently advising GIZ on Nepal's switch to 3,500 electric buses. Before that: 77 km of roads and drains across Tanzania, ADB towns in the Himalayas, and a master's in Bangkok.</p>
@@ -194,6 +206,9 @@
       <a class="stub" href="https://www.linkedin.com/in/cerealchilleraman">in/ linkedin</a>
       <span class="stub">⚑ Kathmandu, Nepal</span>
     </div>
+   </div>
+    <img class="portrait" src="me.jpg" alt="Aman Gautam" width="600" height="600">
+   </div>
   </header>
 </div>
 
