@@ -136,6 +136,14 @@
     padding:2px 9px;margin:8px 6px 0 0;letter-spacing:.03em;
   }
   .tag.hot{background:var(--volt)}
+  .snaps{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin:16px 0 4px;max-width:640px}
+  .snaps figure{margin:0}
+  .snaps img{
+    width:100%;height:190px;object-fit:cover;display:block;
+    border-radius:10px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--sign);background:var(--line);
+  }
+  .snaps figcaption{font-family:var(--mono);font-size:11px;color:#5A665E;margin-top:7px;letter-spacing:.03em}
+  @media(max-width:560px){.snaps{grid-template-columns:1fr}.snaps img{height:auto}}
 
   /* ---------- toolkit + stamps ---------- */
   .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:40px 0 6px}
@@ -252,6 +260,10 @@
         <h3>Road &amp; Drainage Engineer · World Bank TACTIC</h3>
         <p>Two contracts, nine towns, ~77 km of urban roads and drainage from feasibility to bidding documents. Promoted from Non-Key to Key Expert along the way. Also planned bus infrastructure for six local governments — forecasts, bus bays, headways.</p>
         <span class="tag hot">Key Expert</span><span class="tag">hydrological modelling</span><span class="tag">TARURA</span>
+        <div class="snaps">
+          <figure><img src="tz-team.jpg" alt="Aman with the project team in Tanzania" loading="lazy"><figcaption>With the project team</figcaption></figure>
+          <figure><img src="tz-meeting.jpg" alt="Aman reviewing designs with local government staff" loading="lazy"><figcaption>Design review with local staff</figcaption></figure>
+        </div>
       </div>
 
       <div class="stop">
