@@ -252,7 +252,7 @@
 
 <!-- ============ NAV ============ -->
 <nav>
-  <span class="brand">AMAN&nbsp;GAUTAM</span>
+  <a class="brand" href="#" id="brand" title="Back to Who's viewing?">AMAN&nbsp;GAUTAM</a>
   <div class="links">
     <a href="#work">Work</a>
     <a href="#top5">Top 5</a>
@@ -418,6 +418,18 @@
     }
     // 'Friend' keeps the default tagline
   }
+  // brand returns to the "Who's viewing?" gate and resets the profile tagline
+  var defaultTag = document.getElementById('tagline').textContent;
+  var defaultMatch = document.getElementById('match').textContent;
+  document.getElementById('brand').addEventListener('click', function(ev){
+    ev.preventDefault();
+    var dlg = document.getElementById('ep');
+    if(dlg && dlg.open) dlg.close();
+    document.getElementById('tagline').textContent = defaultTag;
+    document.getElementById('match').textContent = defaultMatch;
+    window.scrollTo(0, 0);
+    document.getElementById('gate').classList.remove('hidden');
+  });
   // skip gate if arriving via anchor link
   if(location.hash){document.getElementById('gate').classList.add('hidden')}
 </script>
